@@ -1,0 +1,78 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<web-app xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://java.sun.com/xml/ns/javaee" xmlns:web="http://java.sun.com/xml/ns/javaee/web-app_2_5.xsd" xsi:schemaLocation="http://java.sun.com/xml/ns/javaee http://java.sun.com/xml/ns/javaee/web-app_3_0.xsd" id="WebApp_ID" version="3.0">
+  <display-name>code01-ServletReview-COL</display-name>
+  <welcome-file-list>
+    <welcome-file>index.html</welcome-file>
+    <welcome-file>index.htm</welcome-file>
+    <welcome-file>index.jsp</welcome-file>
+    <welcome-file>default.html</welcome-file>
+    <welcome-file>default.htm</welcome-file>
+    <welcome-file>default.jsp</welcome-file>
+  </welcome-file-list>
+  
+  <!-- servlet context application-wide parameters -->
+  <context-param>
+  	<param-name>jdbcDriver</param-name>
+  	<param-value>com.mysql.jdbc.Driver</param-value>
+  </context-param>
+  
+  <context-param>
+  	<param-name>jdbcUrl</param-name>
+  	<param-value>jdbc:mysql://localhost:3306/bayocot-itelec4c</param-value>
+  </context-param>
+  
+   <context-param>
+    <param-name>dbUserName</param-name>
+    <param-value>VIMQxPBGermbHJG3dGsflA==</param-value>
+  </context-param>
+  <context-param>
+    <param-name>dbPassword</param-name>
+    <param-value>bqW9DUUYEw45bKtKy754uA==</param-value>
+  </context-param>
+  
+  <context-param>
+  	<param-name>dbUserName</param-name>
+  	<param-value>root</param-value>
+  </context-param>
+  
+  <context-param>
+  	<param-name>dbPassword</param-name>
+  	<param-value>12345</param-value>
+  </context-param>
+  
+  
+  <servlet>
+  	<servlet-name>BuyStocksServlet</servlet-name>
+  	<servlet-class>ust.gas.controller.BuyStocksServlet</servlet-class>
+  	<init-param>
+  		<param-name>UNLEADED</param-name>
+  		<param-value>54.00</param-value>
+  	</init-param>
+  	<init-param>
+  		<param-name>DIESEL</param-name>
+  		<param-value>41.00</param-value>
+  	</init-param>
+  	<init-param>
+  		<param-name>PREMIUM</param-name>
+  		<param-value>58.00</param-value>
+  	</init-param>
+  	<init-param>
+  		<param-name>VAT</param-name>
+  		<param-value>0.12</param-value>
+  	</init-param>
+  </servlet>
+  
+  <servlet-mapping>
+  	<servlet-name>BuyStocksServlet</servlet-name>
+  	<url-pattern>/buystocks.action</url-pattern>
+  </servlet-mapping>
+  
+  <listener>
+  <listener-class>com.ust.gasoline.listener.DatabaseServletContextListener</listener-class>
+  </listener>
+  
+  <error-page>
+  <exception-type>com.ust.gasoline.exception.InvalidCreditCardException</exception-type>
+  <location>/error.jsp</location>
+  </error-page>
+</web-app>
